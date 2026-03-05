@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int arr{20}; // Deklarasi variable global array a dengan ukuran 20
+int arr[20]; // Deklarasi variable global array a dengan ukuran 20
 int n; // Deklarasi variable global n untuk menyimpan banyak elemen 
 
 void input() { // procedur untuk input
@@ -15,5 +15,36 @@ void input() { // procedur untuk input
             cout << "\nArray dapat mempunyai maksimal 20 elemen.\n";
         }
     }
-    
+    cout << endl;
+    cout << "===================" << endl;
+    cout << "Masukan Elemen Array" << endl;
+    cout << "===================" << endl;
+
+    for (int i = 0; i < n; i++) {        // Looping dengan i dimulai dari 0
+        cout << "Data ke-" << (i + 1) << ": "; // Output ke layar
+        cin >> arr[i];                   //  Input dari pengguna
+    }
+}
+void bubleSortArray() { // procedur untuk mengurutkan array
+    int pass = 1; // step 1
+
+    do{
+        for (int j = 0; j <= n - 1 - pass; ) { // step 2
+            if (arr[j] > arr[j + 1]){ // step 3
+                int temp;
+                temp = arr[j];
+                arr[j] = arr[j = 1];
+                arr[j + 1] = temp;
+            }
+
+        }
+        pass = pass + 1; // step 4
+
+        cout << "\npass" << pass - 1 << ": "; // number of pass
+        for ( int k = 0; k < n; k++){
+            cout << arr[k] << " ";               // menampilkan data pada number of pass
+        }
+        cout << endl;
+    } while ( pass <= n - 1); // step 5
+
 }
